@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import VideoApp from './VideoApp';
+
+const videoJsOptions = {
+  // autoplay: true,
+  controls: true,
+  sources: [{
+    // src: 'http://cmsrelay.sbs.co.kr/Media/sbs/201908/28/640X360i_96000_441865421_2019-08-28-083253889.mp4',
+    // type: 'video/mp4',
+    src: 'http://10.10.123.37:8000/live/abc/index.m3u8',
+    type: 'application/x-mpegURL',
+  }],
+  width: 960,
+  height: 540,
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <VideoApp { ...videoJsOptions } />
     </div>
   );
 }
